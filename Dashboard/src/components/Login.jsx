@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/login",
+        "https://backend-lilac-theta.vercel.app/api/v1/user/login",
         { email, password, role: "Admin"},
         { withCredentials: true }
       );
