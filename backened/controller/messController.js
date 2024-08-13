@@ -4,7 +4,7 @@ import { config } from 'dotenv';
 config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID || 'AC41b7399fff568606e41d017f61b1fc66';
-const authToken = process.env.TWILIO_AUTH_TOKEN || '5fb27c512f231ed09c69672e1a558e9b';
+const authToken = process.env.TWILIO_AUTH_TOKEN || 'f26f0ee53652da56c416e5d3399afb63';
 const client = twilio(accountSid, authToken);
 
 export const sendMessage = (req, res) => {

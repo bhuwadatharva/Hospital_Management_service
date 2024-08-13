@@ -129,3 +129,6 @@ export const deleteAppointment = catchAsyncErrors(async (req, res, next)=>{
         message: "Appointment Deleted Succesfully!",
     })
 })
+
+
+//https://hospital-management-service-pf6w.vercel.app/
