@@ -68,14 +68,14 @@ const AddNewDoctor = () => {
     formData.append("phone", phone); // Append phone number
 
     // Upload the PDF to the server
-    axios.post("https://backend-lilac-theta.vercel.app/upload-files", formData, {
+    axios.post("http://localhost:4000/upload-files", formData, {
       withCredentials: true,
       headers: { "Content-Type": "multipart/form-data" },
     })
     .then((response) => {
       console.log(response.data);
       toast.success("PDF uploaded successfully.");
-      // Optionally, navigate to another page or reset the form
+      
       navigateTo("/");
     })
     .catch((error) => {
@@ -353,7 +353,7 @@ const AddNewDoctor = () => {
           </div>
           <div>
             <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
-              Doctor's Avatar
+              Report 
             </Typography>
             <input type="file" accept="image/*" onChange={handleAvatar} />
             {docAvatarPreview && (
@@ -368,7 +368,7 @@ const AddNewDoctor = () => {
             variant="gradient"
             color="pink"
             type="submit"
-            className="!min-w-full"
+            className="!min-w-full bg-regal-pink"
           >
             Submit
           </Button>

@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://backend-lilac-theta.vercel.app/api/v1/user/doctor/me",
+          "http://localhost:4000/api/v1/user/doctor/me",
           {
             withCredentials: true,
           }

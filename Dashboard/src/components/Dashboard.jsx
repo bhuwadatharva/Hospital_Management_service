@@ -16,7 +16,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "https://backend-lilac-theta.vercel.app/api/v1/appointment/getall",
+          "http://localhost:4000/api/v1/appointment/getall",
           { withCredentials: true }
         );
         setAppointments(data.appointment);
@@ -30,7 +30,7 @@ const Dashboard = () => {
   const handleUpdateStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `https://backend-lilac-theta.vercel.app/api/v1/appointment/update/${appointmentId}`,
+        `http://localhost:4000/api/v1/appointment/update/${appointmentId}`,
         { status },
         { withCredentials: true }
       );
@@ -53,7 +53,7 @@ const Dashboard = () => {
       console.log("Sending message with payload:", messagePayload);
   
       await axios.post(
-        `https://backend-lilac-theta.vercel.app/send-message`,
+        `http://localhost:4000/send-message`,
         messagePayload,
         { withCredentials: true }
       );
@@ -63,6 +63,20 @@ const Dashboard = () => {
     }
   };
   
+  const handleDeleteAppointment = async (appointmentId) => {
+    try {
+      const { data } = await axios.delete(
+        `http://localhost:4000/api/v1/appointment/delete/${appointmentId}`,
+        { withCredentials: true }
+      );
+      setAppointments((prevAppointments) =>
+        prevAppointments.filter((appointment) => appointment._id !== appointmentId)
+      );
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Something went wrong!");
+    }
+  };
   
 
   const { isAuthenticated, admin } = useContext(Context);

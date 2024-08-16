@@ -20,7 +20,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          `https://backend-lilac-theta.vercel.app/api/v1/appointment/getall?doctor_firstName=${user.firstName}&doctor_lastName=${user.lastName}`,
+          `http://localhost:4000/api/v1/appointment/getall?doctor_firstName=${user.firstName}&doctor_lastName=${user.lastName}`,
           { withCredentials: true }
         );
         setAppointments(data.appointment);
@@ -36,7 +36,7 @@ const Dashboard = () => {
   const handleUpdateStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `https://backend-lilac-theta.vercel.app/api/v1/appointment/update/${appointmentId}`,
+        `http://localhost:4000/api/v1/appointment/update/${appointmentId}`,
         { status },
         { withCredentials: true }
       );
@@ -54,7 +54,7 @@ const Dashboard = () => {
   const handleDeleteAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.delete(
-        `https://backend-lilac-theta.vercel.app/api/v1/appointment/delete/${appointmentId}`,
+        `http://localhost:4000/api/v1/appointment/delete/${appointmentId}`,
         { withCredentials: true }
       );
       setAppointments((prevAppointments) =>

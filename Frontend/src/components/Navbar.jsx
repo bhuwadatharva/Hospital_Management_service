@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     await axios
     .get(
-      "https://backend-lilac-theta.vercel.app/api/v1/user/logout", {
+      "http://localhost:4000/api/v1/user/logout", {
         withCredentials: true,
       }
     )

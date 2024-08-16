@@ -24,7 +24,7 @@ export function Contact() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://backend-lilac-theta.vercel.app/api/v1/user/patient/register",
+        "http://localhost:4000/api/v1/user/patient/register",
         { firstName, lastName, email, phone, adharno, gender, dob, password,role: "patient" },
         {
           withCredentials: true,
