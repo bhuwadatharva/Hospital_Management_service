@@ -42,11 +42,6 @@ app.options('*', cors({
   exposedHeaders: ["Content-Disposition"],
 }));
 
-res.setHeader('Access-Control-Allow-Origin', 'process.env.FRONTEND_URL, process.env.DASHBOARD_URL, process.env.DOCTOR_DASHBOARD_URL');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
-res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-res.setHeader('Access-Control-Allow-Credentials', 'true');
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
