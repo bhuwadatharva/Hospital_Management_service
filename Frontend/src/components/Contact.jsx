@@ -16,7 +16,7 @@ export function Contact() {
     try {
       await axios
         .post(
-          "https://backend-lilac-theta.vercel.app/api/v1/message/send",
+          "https://hospital-management-service-n77u.onrender.com/api/v1/message/send",
           { firstName, lastName, email, phone, message },
           {
             withCredentials: true,
