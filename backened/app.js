@@ -30,6 +30,8 @@ app.use(cors({
   origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL, process.env.DOCTOR_DASHBOARD_URL],
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Content-Disposition"],
 }));
 
 app.use(cookieParser());
