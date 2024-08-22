@@ -24,7 +24,7 @@ export function Contact() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/patient/register",
+        "https://backend-vy3x.onrender.com/api/v1/user/patient/register",
         { firstName, lastName, email, phone, adharno, gender, dob, password,role: "patient" },
         {
           withCredentials: true,

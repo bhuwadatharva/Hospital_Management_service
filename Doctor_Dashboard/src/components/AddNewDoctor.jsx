@@ -68,7 +68,7 @@ const AddNewDoctor = () => {
     formData.append("phone", phone); // Append phone number
 
     // Upload the PDF to the server
-    axios.post("http://localhost:4000/upload-files", formData, {
+    axios.post("https://backend-vy3x.onrender.com/upload-files", formData, {
       withCredentials: true,
       headers: { "Content-Type": "multipart/form-data" },
     })

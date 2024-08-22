@@ -15,7 +15,7 @@ const Messages = () => {
     const fetchCasepaper = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/casepaper/getall",
+          "https://backend-vy3x.onrender.com/api/v1/casepaper/getall",
           { withCredentials: true }
         );
         setCasePapers(data.casepapers);
@@ -34,7 +34,7 @@ const Messages = () => {
 
     try {
       const { data } = await axios.get(
-        `http://localhost:4000/api/v1/casepaper/search?firstName=${searchQuery}`,
+        `https://backend-vy3x.onrender.com/api/v1/casepaper/search?firstName=${searchQuery}`,
         { withCredentials: true }
       );
       setCasePapers(data.casepapers);

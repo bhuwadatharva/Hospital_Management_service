@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/doctor/me",
+          "https://backend-vy3x.onrender.com/api/v1/user/doctor/me",
           {
             withCredentials: true,
           }
