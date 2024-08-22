@@ -27,15 +27,14 @@ app.use("/files", express.static("files"));
 config({ path: "./config/config.env" });
 
 app.use(cors({
-  origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL, process.env.DOCTOR_DASHBOARD_URL],
-  methods: ["GET", "POST", "DELETE", "PUT"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
-  exposedHeaders: ["Content-Disposition"],
-}));
-
-app.options('*', cors({
-  origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL, process.env.DOCTOR_DASHBOARD_URL],
+  origin: function (origin, callback) {
+    const allowedOrigins = [process.env.FRONTEND_URL, process.env.DASHBOARD_URL, process.env.DOCTOR_DASHBOARD_URL];
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
