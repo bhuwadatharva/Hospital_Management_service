@@ -27,14 +27,22 @@ app.use("/files", express.static("files"));
 config({ path: "./config/config.env" });
 
 
+const allowedOrigins = [
+  'https://hospital-management-service-dun.vercel.app',
+  'https://hospital-management-service-28ri.vercel.app',
+  'https://hospital-management-service-nejv.vercel.app'
+];
+
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Credentials', 'true'); // Add this line if credentials are needed
   next();
 });
-
-
 
 app.use(cookieParser());
 app.use(express.json());
