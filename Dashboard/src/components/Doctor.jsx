@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Navigate } from "react-router-dom";
-
+import doctor from "../assets/doctor.jpg
+  
 const Doctor = () => {
   const [doctors, setDoctors] = useState([]);
   const { isAuthenticated } = useContext(Context);
@@ -34,7 +35,7 @@ const Doctor = () => {
             return (
               <div className="card">
                 <img
-                  src={element.docAvatar && element.docAvatar.url}
+                  src={doctor}
                   alt="doctor avatar"
                 />
                 <h4 className="font-playfair font-bold">{`${element.firstName} ${element.lastName}`}</h4>
