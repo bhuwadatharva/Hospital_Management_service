@@ -17,9 +17,7 @@ const AddNewDoctor = () => {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [doctorDepartment, setDoctorDepartment] = useState("");
-  const [docAvatar, setDocAvatar] = useState("");
-  const [docAvatarPreview, setDocAvatarPreview] = useState("");
-
+ 
   const navigateTo = useNavigate();
 
   const departmentsArray = [
@@ -34,15 +32,7 @@ const AddNewDoctor = () => {
     "ENT",
   ];
 
-  const handleAvatar = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      setDocAvatarPreview(reader.result);
-      setDocAvatar(file);
-    };
-  };
+  
 
   const handleAddNewDoctor = async (e) => {
     e.preventDefault();
@@ -57,7 +47,6 @@ const AddNewDoctor = () => {
       formData.append("dob", dob);
       formData.append("gender", gender);
       formData.append("doctorDepartment", doctorDepartment);
-      formData.append("docAvatar", docAvatar);
       await axios
         .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew", formData, {
           withCredentials: true,
@@ -91,12 +80,8 @@ const AddNewDoctor = () => {
   return (
     <section className="page flex flex-col lg:flex-row items-start bg-white">
       <div className="lg:w-1/3 flex flex-col items-center">
-        <img
-          src={docAvatarPreview || "/docHolder.jpg"}
-          alt="Doctor Avatar"
-          className="h-48 w-48 object-cover mb-4"
-        />
-        <input type="file" onChange={handleAvatar} className="mb-4" />
+       
+        
       </div>
       <div className="lg:w-2/3 flex flex-col items-start">
         <form onSubmit={handleAddNewDoctor} className="flex flex-col gap-4 w-full">
