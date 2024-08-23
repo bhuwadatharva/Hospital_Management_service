@@ -38,36 +38,16 @@ const AddNewDoctor = () => {
   const handleAddNewDoctor = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append("firstName", firstName);
-      formData.append("lastName", lastName);
-      formData.append("email", email);
-      formData.append("phone", phone);
-      formData.append("password", password);
-      formData.append("adharno", adharno);
-      formData.append("dob", dob);
-      formData.append("gender", gender);
-      formData.append("doctorDepartment", doctorDepartment);
+      
       await axios
-        .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew", formData, {
+        .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew",{firstName,lastName,email, phone, adharno, dob, gender, password,doctorDepartment, role: "Doctor}, {
           withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
+          headers: { "Content-Type": "application/json" },
         })
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
           navigateTo("/");
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-          setPhone("");
-          setAdharNo("");
-          setDob("");
-          setGender("");
-          setPassword("");
-          setDoctorDepartment("");
-          setDocAvatar("");
-          setDocAvatarPreview("");
         });
     } catch (error) {
       toast.error(error.response.data.message);
