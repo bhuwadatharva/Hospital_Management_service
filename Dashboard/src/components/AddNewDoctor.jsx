@@ -5,6 +5,7 @@ import { Context } from "../main";
 import axios from "axios";
 import { Button, Input, Typography } from "@material-tailwind/react";
 
+
 const AddNewDoctor = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
