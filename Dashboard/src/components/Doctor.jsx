@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Navigate } from "react-router-dom";
-import doctor from "../assets/doctor.jpg
+import doctor from "../assets/doctor.jpg"
   
 const Doctor = () => {
   const [doctors, setDoctors] = useState([]);
