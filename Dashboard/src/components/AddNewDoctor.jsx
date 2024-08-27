@@ -5,7 +5,6 @@ import { Context } from "../main";
 import axios from "axios";
 import { Button, Input, Typography } from "@material-tailwind/react";
 
-
 const AddNewDoctor = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
@@ -18,7 +17,9 @@ const AddNewDoctor = () => {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [doctorDepartment, setDoctorDepartment] = useState("");
- 
+  const [docAvatar, setDocAvatar] = useState("");
+  const [docAvatarPreview, setDocAvatarPreview] = useState("");
+
   const navigateTo = useNavigate();
 
   const departmentsArray = [
@@ -33,10 +34,17 @@ const AddNewDoctor = () => {
     "ENT",
   ];
 
-  
+  const handleAvatar = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setDocAvatarPreview(reader.result);
+      setDocAvatar(file);
+    };
+  };
 
   const handleAddNewDoctor = async (e) => {
-    const handleAddNewDoctor = async (e) => {
     e.preventDefault();
     try {
       const formData = new FormData();
@@ -49,9 +57,9 @@ const AddNewDoctor = () => {
       formData.append("dob", dob);
       formData.append("gender", gender);
       formData.append("doctorDepartment", doctorDepartment);
-      
+     
       await axios
-        .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew",formData, {
+        .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew", formData, {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
         })
@@ -59,6 +67,15 @@ const AddNewDoctor = () => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
           navigateTo("/");
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setPhone("");
+          setAdharNo("");
+          setDob("");
+          setGender("");
+          setPassword("");
+          setDoctorDepartment("");
         });
     } catch (error) {
       toast.error(error.response.data.message);
@@ -71,10 +88,7 @@ const AddNewDoctor = () => {
 
   return (
     <section className="page flex flex-col lg:flex-row items-start bg-white">
-      <div className="lg:w-1/3 flex flex-col items-center">
-       
-        
-      </div>
+     
       <div className="lg:w-2/3 flex flex-col items-start">
         <form onSubmit={handleAddNewDoctor} className="flex flex-col gap-4 w-full">
           <div className="grid grid-cols-2 gap-4">
