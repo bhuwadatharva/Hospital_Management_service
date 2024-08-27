@@ -36,11 +36,22 @@ const AddNewDoctor = () => {
   
 
   const handleAddNewDoctor = async (e) => {
+    const handleAddNewDoctor = async (e) => {
     e.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("email", email);
+      formData.append("phone", phone);
+      formData.append("password", password);
+      formData.append("adharno", adharno);
+      formData.append("dob", dob);
+      formData.append("gender", gender);
+      formData.append("doctorDepartment", doctorDepartment);
       
       await axios
-        .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew",{firstName,lastName,email, phone, adharno, dob, gender, password,doctorDepartment, role: "Doctor}, {
+        .post("https://backend-vy3x.onrender.com/api/v1/user/doctor/addnew",formData, {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
         })
