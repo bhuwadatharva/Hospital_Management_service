@@ -123,8 +123,276 @@ const AddNewDoctor = () => {
       <div className="lg:w-1/3 flex flex-col items-center"></div>
       <div className="lg:w-2/3 flex flex-col items-start">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
-          {/* Form inputs as before */}
-          {/* Your form inputs go here */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+                First Name
+              </Typography>
+              <Input
+                color="gray"
+                size="lg"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="focus:border-t-gray-900"
+                containerProps={{ className: "min-w-full" }}
+                labelProps={{ className: "hidden" }}
+              />
+            </div>
+            <div>
+              <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+                Last Name
+              </Typography>
+              <Input
+                color="gray"
+                size="lg"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                className="focus:border-t-gray-900"
+                containerProps={{ className: "!min-w-full" }}
+                labelProps={{ className: "hidden" }}
+              />
+            </div>
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Age
+            </Typography>
+            <Input
+              color="gray"
+              size="lg"
+              placeholder="Age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Phone Number
+            </Typography>
+            <Input
+              color="gray"
+              size="lg"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Date Of Birth
+            </Typography>
+            <Input
+              color="gray"
+              size="lg"
+              type="date"
+              placeholder="Date Of Birth"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Gender
+            </Typography>
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              className="focus:border-t-gray-900 min-w-full"
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Chief Complaint:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Chief Complaint"
+              value={cc}
+              onChange={(e) => setCc(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Past Medical History:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Past Medical History"
+              value={pmh}
+              onChange={(e) => setPmh(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Having Past Illness:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Having Past Illness"
+              value={hpi}
+              onChange={(e) => setHpi(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Medication:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Medication"
+              value={medication}
+              onChange={(e) => setMedication(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Allergies:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Allergies"
+              value={Allergies}
+              onChange={(e) => setAllergies(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Diagnosis Test:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Diagnosis Test"
+              value={DiagnosisTest}
+              onChange={(e) => setDiagnosisTest(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Assessment:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Assessment"
+              value={Assesment}
+              onChange={(e) => setAssesment(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Plan:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Plan"
+              value={Plan}
+              onChange={(e) => setPlan(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Doctor First Name:
+            </Typography>
+            <Input
+              color="gray"
+              size="lg"
+              placeholder="Doctor First Name"
+              value={doctor_firstName}
+              onChange={(e) => setDoctor_FirstName(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Doctor Last Name:
+            </Typography>
+            <Input
+              color="gray"
+              size="lg"
+              placeholder="Doctor Last Name"
+              value={doctor_lastName}
+              onChange={(e) => setDoctor_LastName(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Progress Note:
+            </Typography>
+            <Textarea
+              rows={6}
+              color="pink"
+              placeholder="Progress Note"
+              value={progressNote}
+              onChange={(e) => setProgressNote(e.target.value)}
+              className="focus:border-t-gray-900"
+              containerProps={{ className: "!min-w-full" }}
+              labelProps={{ className: "hidden" }}
+            />
+          </div>
+          <div>
+            <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
+              Report 
+            </Typography>
+            <input type="file" accept="image/*" onChange={handleAvatar} />
+            {docAvatarPreview && (
+              <img
+                src={docAvatarPreview}
+                alt="Avatar Preview"
+                style={{ width: "100px", height: "100px", marginTop: "10px" }}
+              />
+            )}
+          </div>
           <Button
             variant="gradient"
             color="pink"
