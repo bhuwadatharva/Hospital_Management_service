@@ -99,12 +99,12 @@ const AddNewDoctor = () => {
 
     try {
       // Perform both API calls concurrently
-      await axios.all([
-        axios.post("https://backend-vy3x.onrender.com/upload-files", formData, {
-          withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
-        }),
-        axios.post("https://backend-vy3x.onrender.com/api/v1/casepaper/post", jsonPayload, {
+     // await axios.all([
+       // axios.post("https://backend-vy3x.onrender.com/upload-files", formData, {
+         // withCredentials: true,
+          //headers: { "Content-Type": "multipart/form-data" },
+        //}),
+      await axios.post("https://backend-vy3x.onrender.com/api/v1/casepaper/post", jsonPayload, {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
         }),
