@@ -61,52 +61,46 @@ const AddNewDoctor = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // Generate PDF and prepare form data
-    const formData = generatePDF();
+  // Generate PDF and prepare form data
+  const formData = generatePDF();
 
-    // Prepare JSON payload for the second API call
-    const jsonPayload = {
-      firstName,
-      lastName,
-      age,
-      gender,
-      phone,
-      dob,
-      cc,
-      pmh,
-      medication,
-      Allergies,
-      DiagnosisTest,
-      Assesment,
-      Plan,
-      doctor_firstName,
-      doctor_lastName,
-      hpi,
-      progressNote,
-    };
-
-    try {
-      // Perform both API calls concurrently
-     // await axios.all([
-       // axios.post("https://backend-vy3x.onrender.com/upload-files", formData, {
-         // withCredentials: true,
-          //headers: { "Content-Type": "multipart/form-data" },
-        //}),
-      await axios.post("https://backend-vy3x.onrender.com/api/v1/casepaper/post", jsonPayload, {
-          withCredentials: true,
-          headers: { "Content-Type": "application/json" },
-        }),
-      ]);
-
-      toast.success("PDF and form data uploaded successfully.");
-      navigateTo("/");
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to upload PDF or form data.");
-    }
+  // Prepare JSON payload for the second API call
+  const jsonPayload = {
+    firstName,
+    lastName,
+    age,
+    gender,
+    phone,
+    dob,
+    cc,
+    pmh,
+    medication,
+    Allergies,
+    DiagnosisTest,
+    Assesment,
+    Plan,
+    doctor_firstName,
+    doctor_lastName,
+    hpi,
+    progressNote,
   };
+
+  try {
+    // Perform API call
+    await axios.post("https://backend-vy3x.onrender.com/api/v1/casepaper/post", jsonPayload, {
+      withCredentials: true,
+      headers: { "Content-Type": "application/json" },
+    });
+
+    toast.success("PDF and form data uploaded successfully.");
+    navigateTo("/");
+  } catch (error) {
+    console.error(error);
+    toast.error("Failed to upload PDF or form data.");
+  }
+};
 
   return (
     <section className="page flex flex-col lg:flex-row items-start bg-white">
