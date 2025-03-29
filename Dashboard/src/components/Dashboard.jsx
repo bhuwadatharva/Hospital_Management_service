@@ -46,7 +46,7 @@ const Dashboard = () => {
       // Send a message after updating the status
       const appointment = appointments.find((appt) => appt._id === appointmentId);
       const messagePayload = {
-        to: `+918847787810`, // Ensure this is the correct phone number format
+        to: `+918308522088`, // Ensure this is the correct phone number format
         body: `Your appointment status has been updated to ${status}.`
       };
   
