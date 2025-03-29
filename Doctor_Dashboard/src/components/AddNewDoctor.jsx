@@ -23,21 +23,11 @@ const AddNewDoctor = () => {
   const [doctor_lastName, setDoctor_LastName] = useState("");
   const [hpi, setHpi] = useState("");
   const [progressNote, setProgressNote] = useState("");
-  const [docAvatar, setDocAvatar] = useState("");
-  const [docAvatarPreview, setDocAvatarPreview] = useState("");
+
 
   const navigateTo = useNavigate();
 
-  const handleAvatar = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      setDocAvatarPreview(reader.result);
-      setDocAvatar(file);
-    };
-  };
-
+ 
   const generatePDF = () => {
     const doc = new jsPDF();
     doc.text(`First Name: ${firstName}`, 10, 10);
@@ -384,14 +374,7 @@ const AddNewDoctor = () => {
             <Typography variant="small" className="mb-2 text-left font-medium !text-regal-pink">
               Report 
             </Typography>
-            <input type="file" accept="image/*" onChange={handleAvatar} />
-            {docAvatarPreview && (
-              <img
-                src={docAvatarPreview}
-                alt="Avatar Preview"
-                style={{ width: "100px", height: "100px", marginTop: "10px" }}
-              />
-            )}
+           
           </div>
           <Button
             variant="gradient"
